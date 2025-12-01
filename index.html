@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Saya</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS Animation CDN -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+
+  <style>
+    body { 
+      font-family: 'Poppins', sans-serif;
+    }
+    .hero-bg {
+      background: linear-gradient(135deg, #6366f1, #3b82f6);
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- NAVBAR -->
+  <header class="py-4 fixed w-full bg-white/70 backdrop-blur-md shadow-sm z-50">
+    <div class="container mx-auto flex justify-between items-center px-6">
+      <h1 class="text-xl font-bold text-indigo-600">MyPortfolio</h1>
+      <nav class="space-x-6 text-gray-600 font-medium">
+        <a href="#home" class="hover:text-indigo-600">Home</a>
+        <a href="#about" class="hover:text-indigo-600">Tentang</a>
+        <a href="#projects" class="hover:text-indigo-600">Projek</a>
+        <a href="#contact" class="hover:text-indigo-600">Kontak</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="home" class="hero-bg text-white h-screen flex items-center">
+    <div class="container mx-auto px-6" data-aos="fade-up">
+      <h2 class="text-4xl md:text-6xl font-bold mb-4">Halo, Saya <span class="text-yellow-300">Nama Anda</span></h2>
+      <p class="text-lg md:text-2xl mb-6">Seorang Web Developer & Designer yang siap membantu membuat produk digital modern.</p>
+      <a href="#projects" class="px-6 py-3 bg-white text-indigo-600 font-semibold rounded-lg shadow hover:bg-gray-200">Lihat Projek</a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="py-24 bg-white">
+    <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+      <img src="https://via.placeholder.com/400" class="rounded-2xl shadow-lg" data-aos="fade-right">
+      <div data-aos="fade-left">
+        <h3 class="text-3xl font-bold mb-4 text-indigo-600">Tentang Saya</h3>
+        <p class="text-gray-600 leading-relaxed mb-4">
+          Saya adalah seorang developer yang fokus pada pembuatan website modern menggunakan teknologi terkini seperti TailwindCSS, PHP, dan JavaScript.
+        </p>
+        <p class="text-gray-600 leading-relaxed">
+          Saya berpengalaman membuat landing page, dashboard, aplikasi kecil, dan desain UI/UX.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="py-24 bg-gray-100">
+    <div class="container mx-auto px-6">
+      <h3 class="text-3xl font-bold mb-12 text-center text-indigo-600" data-aos="fade-up">Projek Saya</h3>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- CARD 1 -->
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-xl transition" data-aos="zoom-in">
+          <img src="https://via.placeholder.com/300x200" class="rounded-lg mb-4 w-full">
+          <h4 class="font-bold text-xl mb-2">Project 1</h4>
+          <p class="text-gray-600 mb-4">Deskripsi singkat tentang proyek yang telah Anda kerjakan.</p>
+          <a href="#" class="text-indigo-600 font-semibold hover:underline">Lihat</a>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-xl transition" data-aos="zoom-in" data-aos-delay="100">
+          <img src="https://via.placeholder.com/300x200" class="rounded-lg mb-4 w-full">
+          <h4 class="font-bold text-xl mb-2">Project 2</h4>
+          <p class="text-gray-600 mb-4">Deskripsi singkat tentang proyek yang telah Anda kerjakan.</p>
+          <a href="#" class="text-indigo-600 font-semibold hover:underline">Lihat</a>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-xl transition" data-aos="zoom-in" data-aos-delay="200">
+          <img src="https://via.placeholder.com/300x200" class="rounded-lg mb-4 w-full">
+          <h4 class="font-bold text-xl mb-2">Project 3</h4>
+          <p class="text-gray-600 mb-4">Deskripsi singkat tentang proyek yang telah Anda kerjakan.</p>
+          <a href="#" class="text-indigo-600 font-semibold hover:underline">Lihat</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-24 bg-white">
+    <div class="container mx-auto px-6 text-center" data-aos="fade-up">
+      <h3 class="text-3xl font-bold mb-6 text-indigo-600">Kontak Saya</h3>
+      <p class="text-gray-600 mb-8">Jika Anda tertarik bekerja sama, silakan hubungi saya melalui email di bawah.</p>
+
+      <a href="mailto:emailanda@gmail.com" 
+         class="px-8 py-3 bg-indigo-600 text-white rounded-full shadow hover:bg-indigo-700">
+        Kirim Email
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-6 text-center bg-gray-900 text-gray-300">
+    © 2025 Portfolio. Dibuat dengan ❤ menggunakan Tailwind CSS.
+  </footer>
+
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true
+    });
+  </script>
+</body>
+</html>
