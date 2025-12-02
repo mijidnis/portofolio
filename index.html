@@ -13,11 +13,11 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css" />
 
-  <!-- Font Awesome Icons -->
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
-    /* Glow Diperlembut */
+    /* Glow effect */
     .soft-glow {
       background: linear-gradient(145deg, #2a0048, #ffffff1a);
       box-shadow: 0 0 15px rgba(160, 80, 255, 0.25);
@@ -46,7 +46,7 @@
       }
     }
 
-    /* Floating Icons */
+    /* Desktop Only Floating Icons */
     .floating-icons {
       position: fixed;
       top: 50%;
@@ -55,49 +55,94 @@
       z-index: 9999;
     }
 
-    .floating-icons a {
-      display: block;
-      margin: 12px 0;
-      font-size: 26px;
-      transition: 0.2s;
-    }
-
-    .floating-icons a:hover {
-      color: #c084fc;
-      transform: scale(1.2);
+    @media (max-width: 768px) {
+      .floating-icons {
+        display: none !important;
+      }
     }
   </style>
 </head>
 
 <body class="bg-[#0c0017] text-white overflow-x-hidden">
 
-  <!-- Floating Contact Icons -->
-  <div class="floating-icons text-purple-300">
-    <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-    <a href="#"><i class="fa-brands fa-telegram"></i></a>
-    <a href="#"><i class="fa-brands fa-github"></i></a>
-    <a href="#"><i class="fa-brands fa-twitter"></i></a>
-    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+  <!-- FLOATING ICONS (DESKTOP) -->
+  <div class="floating-icons text-purple-300 hidden md:block">
+    <a href="#" class="block my-3 text-2xl hover:text-purple-400"><i class="fa-brands fa-whatsapp"></i></a>
+    <a href="#" class="block my-3 text-2xl hover:text-purple-400"><i class="fa-brands fa-telegram"></i></a>
+    <a href="#" class="block my-3 text-2xl hover:text-purple-400"><i class="fa-brands fa-github"></i></a>
+    <a href="#" class="block my-3 text-2xl hover:text-purple-400"><i class="fa-brands fa-twitter"></i></a>
+    <a href="#" class="block my-3 text-2xl hover:text-purple-400"><i class="fa-brands fa-instagram"></i></a>
+  </div>
+
+  <!-- MOBILE CONTACT BUTTON -->
+  <button id="contactBtn"
+    class="md:hidden fixed bottom-6 right-6 bg-purple-600 text-white px-5 py-3 rounded-full shadow-lg text-sm font-semibold z-50">
+    Contact Me
+  </button>
+
+  <!-- MOBILE CONTACT POPUP -->
+  <div id="contactPopup"
+    class="hidden fixed bottom-20 right-6 bg-white/10 backdrop-blur-xl border border-white/20 p-4 rounded-2xl shadow-lg z-50">
+
+    <a href="#" class="flex items-center gap-3 py-2 text-purple-300">
+      <i class="fa-brands fa-whatsapp text-xl"></i> WhatsApp
+    </a>
+
+    <a href="#" class="flex items-center gap-3 py-2 text-purple-300">
+      <i class="fa-brands fa-telegram text-xl"></i> Telegram
+    </a>
+
+    <a href="#" class="flex items-center gap-3 py-2 text-purple-300">
+      <i class="fa-brands fa-instagram text-xl"></i> Instagram
+    </a>
+
+    <a href="#" class="flex items-center gap-3 py-2 text-purple-300">
+      <i class="fa-brands fa-github text-xl"></i> GitHub
+    </a>
   </div>
 
   <!-- NAVBAR -->
-  <nav class="w-full py-4 fixed top-0 bg-[#0c0017]/70 backdrop-blur-lg flex justify-between px-10 text-sm z-40">
-    <div class="font-bold tracking-widest">ILHAM</div>
+  <nav class="w-full py-4 fixed top-0 bg-[#0c0017]/70 backdrop-blur-lg z-50">
 
-    <div class="flex gap-6 items-center">
-      <a href="#home" class="hover:text-purple-400">Home</a>
-      <a href="#work" class="hover:text-purple-400">Work</a>
-      <a href="#projects" class="hover:text-purple-400">Projects</a>
-      <a href="#contact" class="hover:text-purple-400">Contact</a>
+    <div class="max-w-6xl mx-auto flex justify-between px-6">
 
-      <!-- View & Download CV -->
-      <a href="#" class="bg-purple-500 px-3 py-1 rounded-full hover:bg-purple-600">View CV</a>
-      <a href="#" download class="bg-purple-600 px-4 py-1 rounded-full hover:bg-purple-700">Download CV</a>
+      <div class="font-bold tracking-widest text-lg">ILHAM</div>
+
+      <!-- DESKTOP MENU -->
+      <div class="hidden md:flex gap-6 items-center text-sm">
+        <a href="#home" class="hover:text-purple-400">Home</a>
+        <a href="#work" class="hover:text-purple-400">Work</a>
+        <a href="#projects" class="hover:text-purple-400">Projects</a>
+        <a href="#contact" class="hover:text-purple-400">Contact</a>
+
+        <a href="#" class="bg-purple-500 px-3 py-1 rounded-full hover:bg-purple-600">View CV</a>
+        <a href="#" download class="bg-purple-600 px-4 py-1 rounded-full hover:bg-purple-700">Download CV</a>
+      </div>
+
+      <!-- MOBILE HAMBURGER -->
+      <button id="menuBtn" class="md:hidden text-xl">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+
     </div>
+
+    <!-- MOBILE DROPDOWN -->
+    <div id="mobileMenu" class="hidden md:hidden flex flex-col text-sm bg-[#0c0017] border-t border-white/10 p-5">
+
+      <a href="#home" class="py-2">Home</a>
+      <a href="#work" class="py-2">Work</a>
+      <a href="#projects" class="py-2">Projects</a>
+      <a href="#contact" class="py-2">Contact</a>
+
+      <a href="#" class="bg-purple-500 px-3 py-2 rounded-full text-center mt-4">View CV</a>
+      <a href="#" download class="bg-purple-600 px-3 py-2 rounded-full text-center mt-3">Download CV</a>
+    </div>
+
   </nav>
 
+
   <!-- HERO -->
-  <section id="home" class="pt-40 pb-32 text-center">
+  <section id="home" class="pt-40 pb-32 text-center px-4">
     <div class="flex justify-center mb-6">
       <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=Ilham" class="w-32 h-32 rounded-full hero-glow" />
     </div>
@@ -117,277 +162,174 @@
   <!-- WORK EXPERIENCE – PREMIUM TIMELINE -->
   <section id="work" class="pt-20 pb-20">
     <h2 class="text-center text-4xl font-semibold mb-16">Work Experience</h2>
-
-    <div class="relative max-w-4xl mx-auto px-6">
-
-      <!-- Vertical Gradient Line -->
-      <div class="absolute left-1/2 -translate-x-1/2 top-0 h-full w-[3px] 
-                bg-gradient-to-b from-purple-700 via-purple-500 to-purple-700 opacity-40"></div>
-
-
-      <!-- ITEM -->
-      <div class="relative mb-16 flex gap-10 items-start">
-
-        <!-- Node -->
+    <div class="relative max-w-4xl mx-auto px-6"> <!-- Vertical Gradient Line -->
+      <div
+        class="absolute left-1/2 -translate-x-1/2 top-0 h-full w-[3px] bg-gradient-to-b from-purple-700 via-purple-500 to-purple-700 opacity-40">
+      </div> <!-- ITEM -->
+      <div class="relative mb-16 flex gap-10 items-start"> <!-- Node -->
         <div class="absolute left-1/2 -translate-x-1/2">
           <div
             class="w-7 h-7 rounded-full bg-purple-500 shadow-[0_0_25px_6px_rgba(150,0,255,0.45)] border-2 border-purple-200">
           </div>
-        </div>
-
-        <!-- Content Card -->
+        </div> <!-- Content Card -->
         <div
           class="ml-auto w-[70%] bg-white/5 backdrop-blur-xl border border-white/10 p-6 rounded-2xl hover:scale-[1.02] transition duration-300 shadow-lg">
           <h3 class="text-xl font-semibold text-purple-300">Frontend Developer</h3>
           <p class="text-gray-400 text-sm mt-1">2022 – Now</p>
-          <p class="text-gray-300 mt-3 leading-relaxed">
-            Creating modern UI/UX with animations, Tailwind, and React ecosystem.
-          </p>
+          <p class="text-gray-300 mt-3 leading-relaxed"> Creating modern UI/UX with animations, Tailwind, and React
+            ecosystem. </p>
         </div>
-      </div>
-
-
-      <!-- ITEM -->
+      </div> <!-- ITEM -->
       <div class="relative mb-16 flex gap-10 items-start">
-
         <div class="absolute left-1/2 -translate-x-1/2">
           <div
             class="w-7 h-7 rounded-full bg-purple-500 shadow-[0_0_25px_6px_rgba(150,0,255,0.45)] border-2 border-purple-200">
           </div>
         </div>
-
         <div
           class="mr-auto w-[70%] bg-white/5 backdrop-blur-xl border border-white/10 p-6 rounded-2xl hover:scale-[1.02] transition duration-300 shadow-lg">
           <h3 class="text-xl font-semibold text-purple-300">Mobile Developer</h3>
           <p class="text-gray-400 text-sm mt-1">2021 – 2022</p>
-          <p class="text-gray-300 mt-3 leading-relaxed">
-            Developing smooth mobile experiences using Kotlin and Flutter.
+          <p class="text-gray-300 mt-3 leading-relaxed"> Developing smooth mobile experiences using Kotlin and Flutter.
           </p>
         </div>
-      </div>
-
-
-      <!-- ITEM -->
+      </div> <!-- ITEM -->
       <div class="relative mb-10 flex gap-10 items-start">
-
         <div class="absolute left-1/2 -translate-x-1/2">
           <div
             class="w-7 h-7 rounded-full bg-purple-500 shadow-[0_0_25px_6px_rgba(150,0,255,0.45)] border-2 border-purple-200">
           </div>
         </div>
-
         <div
           class="ml-auto w-[70%] bg-white/5 backdrop-blur-xl border border-white/10 p-6 rounded-2xl hover:scale-[1.02] transition duration-300 shadow-lg">
           <h3 class="text-xl font-semibold text-purple-300">Backend Developer</h3>
           <p class="text-gray-400 text-sm mt-1">2020 – 2021</p>
-          <p class="text-gray-300 mt-3 leading-relaxed">
-            Handling API systems, authentication, and scalable databases.
+          <p class="text-gray-300 mt-3 leading-relaxed"> Handling API systems, authentication, and scalable databases.
           </p>
         </div>
       </div>
-
     </div>
-  </section>
-
-<!-- SKILLS SECTION – DARK FUTURISTIC MATCHING THEME -->
-<section id="skills" class="pt-20 pb-28">
-  <h2 class="text-center text-3xl font-semibold mb-14 tracking-wide text-purple-300">
-    Skills & Technologies
-  </h2>
-
-  <div class="max-w-4xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-10 px-6">
-
-    <!-- ITEM -->
-    <div class="group rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 
-                shadow-[0_0_12px_rgba(150,0,255,0.25)]
-                hover:shadow-[0_0_25px_rgba(170,60,255,0.55)] 
-                hover:-translate-y-2 transition-all duration-300
-                py-8 flex flex-col items-center">
-      <i class="fa-brands fa-html5 text-4xl text-orange-400 mb-3"></i>
-      <p class="text-gray-200 text-sm font-medium">HTML5</p>
+  </section> <!-- SKILLS SECTION – DARK FUTURISTIC MATCHING THEME -->
+  <section id="skills" class="pt-20 pb-28">
+    <h2 class="text-center text-3xl font-semibold mb-14 tracking-wide text-purple-300"> Skills & Technologies </h2>
+    <div class="max-w-4xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-10 px-6"> <!-- ITEM -->
+      <div
+        class="group rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-[0_0_12px_rgba(150,0,255,0.25)] hover:shadow-[0_0_25px_rgba(170,60,255,0.55)] hover:-translate-y-2 transition-all duration-300 py-8 flex flex-col items-center">
+        <i class="fa-brands fa-html5 text-4xl text-orange-400 mb-3"></i>
+        <p class="text-gray-200 text-sm font-medium">HTML5</p>
+      </div>
+      <div
+        class="group rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-[0_0_12px_rgba(150,0,255,0.25)] hover:shadow-[0_0_25px_rgba(170,60,255,0.55)] hover:-translate-y-2 transition-all duration-300 py-8 flex flex-col items-center">
+        <i class="fa-brands fa-css3-alt text-4xl text-blue-400 mb-3"></i>
+        <p class="text-gray-200 text-sm font-medium">CSS3</p>
+      </div>
+      <div
+        class="group rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-[0_0_12px_rgba(150,0,255,0.25)] hover:shadow-[0_0_25px_rgba(170,60,255,0.55)] hover:-translate-y-2 transition-all duration-300 py-8 flex flex-col items-center">
+        <i class="fa-brands fa-js text-4xl text-yellow-300 mb-3"></i>
+        <p class="text-gray-200 text-sm font-medium">JavaScript</p>
+      </div>
+      <div
+        class="group rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-[0_0_12px_rgba(150,0,255,0.25)] hover:shadow-[0_0_25px_rgba(170,60,255,0.55)] hover:-translate-y-2 transition-all duration-300 py-8 flex flex-col items-center">
+        <i class="fa-brands fa-react text-4xl text-blue-300 mb-3"></i>
+        <p class="text-gray-200 text-sm font-medium">React</p>
+      </div>
+      <div
+        class="group rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-[0_0_12px_rgba(150,0,255,0.25)] hover:shadow-[0_0_25px_rgba(170,60,255,0.55)] hover:-translate-y-2 transition-all duration-300 py-8 flex flex-col items-center">
+        <i class="fa-brands fa-node text-4xl text-green-400 mb-3"></i>
+        <p class="text-gray-200 text-sm font-medium">Node.js</p>
+      </div>
+      <div
+        class="group rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-[0_0_12px_rgba(150,0,255,0.25)] hover:shadow-[0_0_25px_rgba(170,60,255,0.55)] hover:-translate-y-2 transition-all duration-300 py-8 flex flex-col items-center">
+        <i class="fa-solid fa-database text-4xl text-purple-300 mb-3"></i>
+        <p class="text-gray-200 text-sm font-medium">MySQL</p>
+      </div>
+      <div
+        class="group rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-[0_0_12px_rgba(150,0,255,0.25)] hover:shadow-[0_0_25px_rgba(170,60,255,0.55)] hover:-translate-y-2 transition-all duration-300 py-8 flex flex-col items-center">
+        <i class="fa-brands fa-git-alt text-4xl text-red-400 mb-3"></i>
+        <p class="text-gray-200 text-sm font-medium">Git</p>
+      </div>
+      <div
+        class="group rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-[0_0_12px_rgba(150,0,255,0.25)] hover:shadow-[0_0_25px_rgba(170,60,255,0.55)] hover:-translate-y-2 transition-all duration-300 py-8 flex flex-col items-center">
+        <i class="fa-brands fa-linux text-4xl text-gray-300 mb-3"></i>
+        <p class="text-gray-200 text-sm font-medium">Linux</p>
+      </div>
     </div>
-
-    <div class="group rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 
-                shadow-[0_0_12px_rgba(150,0,255,0.25)]
-                hover:shadow-[0_0_25px_rgba(170,60,255,0.55)] 
-                hover:-translate-y-2 transition-all duration-300
-                py-8 flex flex-col items-center">
-      <i class="fa-brands fa-css3-alt text-4xl text-blue-400 mb-3"></i>
-      <p class="text-gray-200 text-sm font-medium">CSS3</p>
-    </div>
-
-    <div class="group rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 
-                shadow-[0_0_12px_rgba(150,0,255,0.25)]
-                hover:shadow-[0_0_25px_rgba(170,60,255,0.55)] 
-                hover:-translate-y-2 transition-all duration-300
-                py-8 flex flex-col items-center">
-      <i class="fa-brands fa-js text-4xl text-yellow-300 mb-3"></i>
-      <p class="text-gray-200 text-sm font-medium">JavaScript</p>
-    </div>
-
-    <div class="group rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 
-                shadow-[0_0_12px_rgba(150,0,255,0.25)]
-                hover:shadow-[0_0_25px_rgba(170,60,255,0.55)] 
-                hover:-translate-y-2 transition-all duration-300
-                py-8 flex flex-col items-center">
-      <i class="fa-brands fa-react text-4xl text-blue-300 mb-3"></i>
-      <p class="text-gray-200 text-sm font-medium">React</p>
-    </div>
-
-    <div class="group rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 
-                shadow-[0_0_12px_rgba(150,0,255,0.25)]
-                hover:shadow-[0_0_25px_rgba(170,60,255,0.55)] 
-                hover:-translate-y-2 transition-all duration-300
-                py-8 flex flex-col items-center">
-      <i class="fa-brands fa-node text-4xl text-green-400 mb-3"></i>
-      <p class="text-gray-200 text-sm font-medium">Node.js</p>
-    </div>
-
-    <div class="group rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 
-                shadow-[0_0_12px_rgba(150,0,255,0.25)]
-                hover:shadow-[0_0_25px_rgba(170,60,255,0.55)] 
-                hover:-translate-y-2 transition-all duration-300
-                py-8 flex flex-col items-center">
-      <i class="fa-solid fa-database text-4xl text-purple-300 mb-3"></i>
-      <p class="text-gray-200 text-sm font-medium">MySQL</p>
-    </div>
-
-    <div class="group rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 
-                shadow-[0_0_12px_rgba(150,0,255,0.25)]
-                hover:shadow-[0_0_25px_rgba(170,60,255,0.55)] 
-                hover:-translate-y-2 transition-all duration-300
-                py-8 flex flex-col items-center">
-      <i class="fa-brands fa-git-alt text-4xl text-red-400 mb-3"></i>
-      <p class="text-gray-200 text-sm font-medium">Git</p>
-    </div>
-
-    <div class="group rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 
-                shadow-[0_0_12px_rgba(150,0,255,0.25)]
-                hover:shadow-[0_0_25px_rgba(170,60,255,0.55)] 
-                hover:-translate-y-2 transition-all duration-300
-                py-8 flex flex-col items-center">
-      <i class="fa-brands fa-linux text-4xl text-gray-300 mb-3"></i>
-      <p class="text-gray-200 text-sm font-medium">Linux</p>
-    </div>
-
-  </div>
-</section>
-
-
-
-  <!--PROJEK-->
+  </section> <!--PROJEK-->
   <section id="projects" class="pt-20 pb-24">
-    <h2 class="text-center text-3xl font-semibold mb-12">Projects</h2>
-
-    <!-- CONTAINER DIKECILKAN -->
-    <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 px-6">
-
-      <!-- PROJECT CARD 1 -->
+    <h2 class="text-center text-3xl font-semibold mb-12">Projects</h2> <!-- CONTAINER DIKECILKAN -->
+    <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 px-6"> <!-- PROJECT CARD 1 -->
       <div
         class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-5 hover:scale-[1.02] transition shadow-lg soft-glow">
         <img src="https://picsum.photos/500/300?random=11" class="w-full h-48 object-cover rounded-xl mb-4 glow" />
-
         <h3 class="text-xl font-semibold text-purple-300">Landing Page</h3>
-        <p class="text-gray-300 text-sm mt-1">
-          Modern and responsive landing page with smooth animations.
-        </p>
-
-        <div class="flex gap-6 mt-4">
-          <a href="#" class="text-purple-400 underline">GitHub</a>
-          <a href="#" class="text-purple-400 underline">Live Demo</a>
-        </div>
-      </div>
-
-      <!-- PROJECT CARD 2 -->
+        <p class="text-gray-300 text-sm mt-1"> Modern and responsive landing page with smooth animations. </p>
+        <div class="flex gap-6 mt-4"> <a href="#" class="text-purple-400 underline">GitHub</a> <a href="#"
+            class="text-purple-400 underline">Live Demo</a> </div>
+      </div> <!-- PROJECT CARD 2 -->
       <div
         class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-5 hover:scale-[1.02] transition shadow-lg soft-glow">
         <img src="https://picsum.photos/500/300?random=12" class="w-full h-48 object-cover rounded-xl mb-4 glow" />
-
         <h3 class="text-xl font-semibold text-purple-300">Dashboard System</h3>
-        <p class="text-gray-300 text-sm mt-1">
-          Admin dashboard with analytics & charts.
-        </p>
-
-        <div class="flex gap-6 mt-4">
-          <a href="#" class="text-purple-400 underline">GitHub</a>
-          <a href="#" class="text-purple-400 underline">Live Demo</a>
-        </div>
-      </div>
-
-      <!-- PROJECT CARD 3 -->
+        <p class="text-gray-300 text-sm mt-1"> Admin dashboard with analytics & charts. </p>
+        <div class="flex gap-6 mt-4"> <a href="#" class="text-purple-400 underline">GitHub</a> <a href="#"
+            class="text-purple-400 underline">Live Demo</a> </div>
+      </div> <!-- PROJECT CARD 3 -->
       <div
         class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-5 hover:scale-[1.02] transition shadow-lg soft-glow">
         <img src="https://picsum.photos/500/300?random=13" class="w-full h-48 object-cover rounded-xl mb-4 glow" />
-
         <h3 class="text-xl font-semibold text-purple-300">Mobile App UI</h3>
-        <p class="text-gray-300 text-sm mt-1">
-          Elegant mobile interface following modern design standards.
-        </p>
-
-        <div class="flex gap-6 mt-4">
-          <a href="#" class="text-purple-400 underline">GitHub</a>
-          <a href="#" class="text-purple-400 underline">Live Demo</a>
-        </div>
-      </div>
-
-      <!-- PROJECT CARD 4 -->
+        <p class="text-gray-300 text-sm mt-1"> Elegant mobile interface following modern design standards. </p>
+        <div class="flex gap-6 mt-4"> <a href="#" class="text-purple-400 underline">GitHub</a> <a href="#"
+            class="text-purple-400 underline">Live Demo</a> </div>
+      </div> <!-- PROJECT CARD 4 -->
       <div
         class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-5 hover:scale-[1.02] transition shadow-lg soft-glow">
         <img src="https://picsum.photos/500/300?random=14" class="w-full h-48 object-cover rounded-xl mb-4 glow" />
-
         <h3 class="text-xl font-semibold text-purple-300">Fullstack App</h3>
-        <p class="text-gray-300 text-sm mt-1">
-          Fullstack web app with authentication and API services.
-        </p>
-
-        <div class="flex gap-6 mt-4">
-          <a href="#" class="text-purple-400 underline">GitHub</a>
-          <a href="#" class="text-purple-400 underline">Live Demo</a>
-        </div>
+        <p class="text-gray-300 text-sm mt-1"> Fullstack web app with authentication and API services. </p>
+        <div class="flex gap-6 mt-4"> <a href="#" class="text-purple-400 underline">GitHub</a> <a href="#"
+            class="text-purple-400 underline">Live Demo</a> </div>
       </div>
-
     </div>
-  </section>
-
-
-  <!-- CONTACT -->
+  </section> <!-- CONTACT -->
   <section id="contact" class="pt-20 pb-24 text-center">
     <h2 class="text-3xl font-semibold mb-4">Contact</h2>
     <p class="text-gray-300 mb-10">Let’s build something amazing together.</p>
-
-    <div class="max-w-md mx-auto grid grid-cols-2 sm:grid-cols-4 gap-6">
-
-      <a href="#" class="bg-white/5 backdrop-blur-xl border border-white/10 p-6 rounded-xl 
-                      hover:scale-[1.07] transition soft-glow text-purple-300">
+    <div class="max-w-md mx-auto grid grid-cols-2 sm:grid-cols-4 gap-6"> <a href="#"
+        class="bg-white/5 backdrop-blur-xl border border-white/10 p-6 rounded-xl hover:scale-[1.07] transition soft-glow text-purple-300">
         <i class="fa-brands fa-instagram text-3xl mb-2"></i>
         <p class="text-sm text-gray-200 mt-1">Instagram</p>
-      </a>
-
-      <a href="#" class="bg-white/5 backdrop-blur-xl border border-white/10 p-6 rounded-xl 
-                      hover:scale-[1.07] transition soft-glow text-purple-300">
+      </a> <a href="#"
+        class="bg-white/5 backdrop-blur-xl border border-white/10 p-6 rounded-xl hover:scale-[1.07] transition soft-glow text-purple-300">
         <i class="fa-brands fa-twitter text-3xl mb-2"></i>
         <p class="text-sm text-gray-200 mt-1">Twitter</p>
-      </a>
-
-      <a href="#" class="bg-white/5 backdrop-blur-xl border border-white/10 p-6 rounded-xl 
-                      hover:scale-[1.07] transition soft-glow text-purple-300">
+      </a> <a href="#"
+        class="bg-white/5 backdrop-blur-xl border border-white/10 p-6 rounded-xl hover:scale-[1.07] transition soft-glow text-purple-300">
         <i class="fa-brands fa-github text-3xl mb-2"></i>
         <p class="text-sm text-gray-200 mt-1">GitHub</p>
-      </a>
-
-      <a href="#" class="bg-white/5 backdrop-blur-xl border border-white/10 p-6 rounded-xl 
-                      hover:scale-[1.07] transition soft-glow text-purple-300">
+      </a> <a href="#"
+        class="bg-white/5 backdrop-blur-xl border border-white/10 p-6 rounded-xl hover:scale-[1.07] transition soft-glow text-purple-300">
         <i class="fa-brands fa-telegram text-3xl mb-2"></i>
         <p class="text-sm text-gray-200 mt-1">Telegram</p>
-      </a>
-
-    </div>
+      </a> </div>
   </section>
 
-
   <script>
-    tns({ container: '.my-slider', items: 1, slideBy: 'page', autoplay: true });
-    tns({ container: '.my-slider2', items: 1, slideBy: 'page', autoplay: true });
+    // Mobile Menu Toggle
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    // Contact Popup Toggle (Mobile)
+    const contactBtn = document.getElementById("contactBtn");
+    const pop = document.getElementById("contactPopup");
+
+    contactBtn.addEventListener("click", () => {
+      pop.classList.toggle("hidden");
+    });
   </script>
 
 </body>
