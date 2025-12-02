@@ -1,123 +1,395 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio - M. Ilham Zidni Syauqillah</title>
+  <title>Ilham — Software Engineer</title>
+
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tiny Slider -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/min/tiny-slider.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css" />
+
+  <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <!-- AOS Animation -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-  <!-- Devicon Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
+  <style>
+    /* Glow Diperlembut */
+    .soft-glow {
+      background: linear-gradient(145deg, #2a0048, #ffffff1a);
+      box-shadow: 0 0 15px rgba(160, 80, 255, 0.25);
+    }
+
+    .glow {
+      box-shadow: 0 0 18px rgba(150, 0, 255, 0.30);
+    }
+
+    .hero-glow {
+      animation: pulse 3s infinite;
+      filter: drop-shadow(0 0 14px rgba(150, 0, 255, 0.4));
+    }
+
+    @keyframes pulse {
+      0% {
+        opacity: 0.7;
+      }
+
+      50% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0.7;
+      }
+    }
+
+    /* Floating Icons */
+    .floating-icons {
+      position: fixed;
+      top: 50%;
+      left: 20px;
+      transform: translateY(-50%);
+      z-index: 9999;
+    }
+
+    .floating-icons a {
+      display: block;
+      margin: 12px 0;
+      font-size: 26px;
+      transition: 0.2s;
+    }
+
+    .floating-icons a:hover {
+      color: #c084fc;
+      transform: scale(1.2);
+    }
+  </style>
 </head>
-<body class="bg-gradient-to-br from-slate-900 via-indigo-900 to-black text-white">
-  <!-- Navbar -->
-  <nav class="fixed top-0 left-0 w-full bg-black/40 backdrop-blur-md py-4 z-50">
-    <div class="max-w-6xl mx-auto flex justify-between items-center px-6">
-      <h1 class="font-bold text-xl tracking-wide">IlhamZidni.dev</h1>
-      <div class="space-x-6 hidden md:block">
-        <a href="#home" class="hover:text-indigo-400">Home</a>
-        <a href="#about" class="hover:text-indigo-400">About</a>
-        <a href="#projects" class="hover:text-indigo-400">Projects</a>
-        <a href="#experience" class="hover:text-indigo-400">Experience</a>
-        <a href="#skills" class="hover:text-indigo-400">Skills</a>
-        <a href="#contact" class="hover:text-indigo-400">Contact</a>
-      </div>
+
+<body class="bg-[#0c0017] text-white overflow-x-hidden">
+
+  <!-- Floating Contact Icons -->
+  <div class="floating-icons text-purple-300">
+    <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+    <a href="#"><i class="fa-brands fa-telegram"></i></a>
+    <a href="#"><i class="fa-brands fa-github"></i></a>
+    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="w-full py-4 fixed top-0 bg-[#0c0017]/70 backdrop-blur-lg flex justify-between px-10 text-sm z-40">
+    <div class="font-bold tracking-widest">ILHAM</div>
+
+    <div class="flex gap-6 items-center">
+      <a href="#home" class="hover:text-purple-400">Home</a>
+      <a href="#work" class="hover:text-purple-400">Work</a>
+      <a href="#projects" class="hover:text-purple-400">Projects</a>
+      <a href="#contact" class="hover:text-purple-400">Contact</a>
+
+      <!-- View & Download CV -->
+      <a href="#" class="bg-purple-500 px-3 py-1 rounded-full hover:bg-purple-600">View CV</a>
+      <a href="#" download class="bg-purple-600 px-4 py-1 rounded-full hover:bg-purple-700">Download CV</a>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section data-aos="fade-up" id="home" class="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-20">
-    <h1 class="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-indigo-400 to-pink-400 bg-clip-text text-transparent">Hello, I'm Ilham</h1>
-    <p class="mt-4 text-lg max-w-2xl text-gray-300">Creative Web Developer & Mobile App Enthusiast — Crafting beautiful digital experiences.</p>
-    <div class="mt-6">
-      <a href="#" class="px-6 py-3 bg-indigo-500 hover:bg-indigo-600 rounded-full shadow-lg">Download CV</a>
+  <!-- HERO -->
+  <section id="home" class="pt-40 pb-32 text-center">
+    <div class="flex justify-center mb-6">
+      <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=Ilham" class="w-32 h-32 rounded-full hero-glow" />
     </div>
-    <div class="mt-10 w-40 h-40 rounded-full overflow-hidden border-4 border-indigo-500 shadow-xl">
-      <img src="https://via.placeholder.com/300" class="w-full h-full object-cover" />
-    </div>
+
+    <p class="text-purple-300 font-semibold">Software Engineer</p>
+
+    <h1 class="text-4xl md:text-5xl font-bold mt-2">
+      Judges a book by its <span class="text-purple-400">cover</span>.
+    </h1>
+
+    <p class="max-w-2xl mx-auto mt-4 text-gray-300">
+      I’m Ilham, a passionate developer who loves crafting beautiful interfaces and clean architectures.
+      Currently focusing on full-stack development and system design.
+    </p>
   </section>
 
-  <!-- About Section -->
-  <section data-aos="fade-up" id="about" class="py-20 max-w-6xl mx-auto px-6">
-    <h2 class="text-4xl font-bold mb-6">About Me</h2>
-    <p class="text-gray-300 leading-relaxed max-w-3xl">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed nulla cupiditate soluta fugiat autem. Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis deleniti ex, ducimus numquam nulla quam?</p>
-  </section>
+  <!-- WORK EXPERIENCE – PREMIUM TIMELINE -->
+  <section id="work" class="pt-20 pb-20">
+    <h2 class="text-center text-4xl font-semibold mb-16">Work Experience</h2>
 
-  <!-- Projects Section -->
-  <section data-aos="fade-up" id="projects" class="py-20 max-w-6xl mx-auto px-6">
-    <h2 class="text-4xl font-bold mb-12 text-center">Projects</h2>
-    <div class="grid md:grid-cols-3 gap-10">
-      <div class="bg-white/10 rounded-xl p-5 backdrop-blur-md hover:scale-105 transition shadow-xl">
-        <h3 class="font-bold text-xl mb-3">Project Satu</h3>
-        <p class="text-gray-300 text-sm mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        <div class="flex space-x-3 text-indigo-400">
-          <i class="fa-brands fa-github"></i>
-          <i class="fa-solid fa-link"></i>
+    <div class="relative max-w-4xl mx-auto px-6">
+
+      <!-- Vertical Gradient Line -->
+      <div class="absolute left-1/2 -translate-x-1/2 top-0 h-full w-[3px] 
+                bg-gradient-to-b from-purple-700 via-purple-500 to-purple-700 opacity-40"></div>
+
+
+      <!-- ITEM -->
+      <div class="relative mb-16 flex gap-10 items-start">
+
+        <!-- Node -->
+        <div class="absolute left-1/2 -translate-x-1/2">
+          <div
+            class="w-7 h-7 rounded-full bg-purple-500 shadow-[0_0_25px_6px_rgba(150,0,255,0.45)] border-2 border-purple-200">
+          </div>
+        </div>
+
+        <!-- Content Card -->
+        <div
+          class="ml-auto w-[70%] bg-white/5 backdrop-blur-xl border border-white/10 p-6 rounded-2xl hover:scale-[1.02] transition duration-300 shadow-lg">
+          <h3 class="text-xl font-semibold text-purple-300">Frontend Developer</h3>
+          <p class="text-gray-400 text-sm mt-1">2022 – Now</p>
+          <p class="text-gray-300 mt-3 leading-relaxed">
+            Creating modern UI/UX with animations, Tailwind, and React ecosystem.
+          </p>
         </div>
       </div>
-      <div class="bg-white/10 rounded-xl p-5 backdrop-blur-md hover:scale-105 transition shadow-xl">
-        <h3 class="font-bold text-xl mb-3">Project Dua</h3>
-        <p class="text-gray-300 text-sm mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        <div class="flex space-x-3 text-indigo-400">
-          <i class="fa-brands fa-github"></i>
-          <i class="fa-solid fa-link"></i>
+
+
+      <!-- ITEM -->
+      <div class="relative mb-16 flex gap-10 items-start">
+
+        <div class="absolute left-1/2 -translate-x-1/2">
+          <div
+            class="w-7 h-7 rounded-full bg-purple-500 shadow-[0_0_25px_6px_rgba(150,0,255,0.45)] border-2 border-purple-200">
+          </div>
+        </div>
+
+        <div
+          class="mr-auto w-[70%] bg-white/5 backdrop-blur-xl border border-white/10 p-6 rounded-2xl hover:scale-[1.02] transition duration-300 shadow-lg">
+          <h3 class="text-xl font-semibold text-purple-300">Mobile Developer</h3>
+          <p class="text-gray-400 text-sm mt-1">2021 – 2022</p>
+          <p class="text-gray-300 mt-3 leading-relaxed">
+            Developing smooth mobile experiences using Kotlin and Flutter.
+          </p>
         </div>
       </div>
-      <div class="bg-white/10 rounded-xl p-5 backdrop-blur-md hover:scale-105 transition shadow-xl">
-        <h3 class="font-bold text-xl mb-3">Project Tiga</h3>
-        <p class="text-gray-300 text-sm mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        <div class="flex space-x-3 text-indigo-400">
-          <i class="fa-brands fa-github"></i>
-          <i class="fa-solid fa-link"></i>
+
+
+      <!-- ITEM -->
+      <div class="relative mb-10 flex gap-10 items-start">
+
+        <div class="absolute left-1/2 -translate-x-1/2">
+          <div
+            class="w-7 h-7 rounded-full bg-purple-500 shadow-[0_0_25px_6px_rgba(150,0,255,0.45)] border-2 border-purple-200">
+          </div>
+        </div>
+
+        <div
+          class="ml-auto w-[70%] bg-white/5 backdrop-blur-xl border border-white/10 p-6 rounded-2xl hover:scale-[1.02] transition duration-300 shadow-lg">
+          <h3 class="text-xl font-semibold text-purple-300">Backend Developer</h3>
+          <p class="text-gray-400 text-sm mt-1">2020 – 2021</p>
+          <p class="text-gray-300 mt-3 leading-relaxed">
+            Handling API systems, authentication, and scalable databases.
+          </p>
         </div>
       </div>
+
     </div>
   </section>
 
-  <!-- Experience Section -->
-  <section data-aos="fade-up" id="experience" class="py-20 max-w-6xl mx-auto px-6">
-    <h2 class="text-4xl font-bold mb-6">Experience</h2>
-    <ul class="space-y-4 text-gray-300">
-      <li>• Junior Web Developer — PT Random Teknologi</li>
-      <li>• UI/UX Designer — Creative Studio XYZ</li>
-      <li>• Mobile Dev Intern — MobileLabs</li>
-    </ul>
-  </section>
+<!-- SKILLS SECTION – DARK FUTURISTIC MATCHING THEME -->
+<section id="skills" class="pt-20 pb-28">
+  <h2 class="text-center text-3xl font-semibold mb-14 tracking-wide text-purple-300">
+    Skills & Technologies
+  </h2>
 
-  <!-- Skills Section -->
-  <section data-aos="fade-up" id="skills" class="py-20 max-w-6xl mx-auto px-6">
-    <h2 class="text-4xl font-bold mb-12 text-center">Skills</h2>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-      <div class="bg-white/10 p-6 rounded-xl shadow-md flex flex-col items-center"><i class="devicon-html5-plain text-4xl mb-2 text-orange-500"></i>HTML</div>
-      <div class="bg-white/10 p-6 rounded-xl shadow-md flex flex-col items-center"><i class="devicon-css3-plain text-4xl mb-2 text-blue-500"></i>CSS</div>
-      <div class="bg-white/10 p-6 rounded-xl shadow-md flex flex-col items-center"><i class="devicon-javascript-plain text-4xl mb-2"></i>JavaScript</div>
-      <div class="bg-white/10 p-6 rounded-xl shadow-md flex flex-col items-center"><i class="devicon-php-plain text-4xl mb-2 text-indigo-300"></i>PHP</div>
-      <div class="bg-white/10 p-6 rounded-xl shadow-md flex flex-col items-center"><i class="devicon-mysql-plain text-4xl mb-2 text-blue-300"></i>MySQL</div>
-      <div class="bg-white/10 p-6 rounded-xl shadow-md flex flex-col items-center"><i class="devicon-tailwindcss-plain text-4xl mb-2 text-cyan-300"></i>Tailwind</div>
-      <div class="bg-white/10 p-6 rounded-xl shadow-md flex flex-col items-center"><i class="devicon-laravel-plain text-4xl mb-2 text-red-500"></i>Laravel</div>
-      <div class="bg-white/10 p-6 rounded-xl shadow-md flex flex-col items-center"><i class="devicon-flutter-plain text-4xl mb-2 text-sky-400"></i>Flutter</div>
+  <div class="max-w-4xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-10 px-6">
+
+    <!-- ITEM -->
+    <div class="group rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 
+                shadow-[0_0_12px_rgba(150,0,255,0.25)]
+                hover:shadow-[0_0_25px_rgba(170,60,255,0.55)] 
+                hover:-translate-y-2 transition-all duration-300
+                py-8 flex flex-col items-center">
+      <i class="fa-brands fa-html5 text-4xl text-orange-400 mb-3"></i>
+      <p class="text-gray-200 text-sm font-medium">HTML5</p>
+    </div>
+
+    <div class="group rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 
+                shadow-[0_0_12px_rgba(150,0,255,0.25)]
+                hover:shadow-[0_0_25px_rgba(170,60,255,0.55)] 
+                hover:-translate-y-2 transition-all duration-300
+                py-8 flex flex-col items-center">
+      <i class="fa-brands fa-css3-alt text-4xl text-blue-400 mb-3"></i>
+      <p class="text-gray-200 text-sm font-medium">CSS3</p>
+    </div>
+
+    <div class="group rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 
+                shadow-[0_0_12px_rgba(150,0,255,0.25)]
+                hover:shadow-[0_0_25px_rgba(170,60,255,0.55)] 
+                hover:-translate-y-2 transition-all duration-300
+                py-8 flex flex-col items-center">
+      <i class="fa-brands fa-js text-4xl text-yellow-300 mb-3"></i>
+      <p class="text-gray-200 text-sm font-medium">JavaScript</p>
+    </div>
+
+    <div class="group rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 
+                shadow-[0_0_12px_rgba(150,0,255,0.25)]
+                hover:shadow-[0_0_25px_rgba(170,60,255,0.55)] 
+                hover:-translate-y-2 transition-all duration-300
+                py-8 flex flex-col items-center">
+      <i class="fa-brands fa-react text-4xl text-blue-300 mb-3"></i>
+      <p class="text-gray-200 text-sm font-medium">React</p>
+    </div>
+
+    <div class="group rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 
+                shadow-[0_0_12px_rgba(150,0,255,0.25)]
+                hover:shadow-[0_0_25px_rgba(170,60,255,0.55)] 
+                hover:-translate-y-2 transition-all duration-300
+                py-8 flex flex-col items-center">
+      <i class="fa-brands fa-node text-4xl text-green-400 mb-3"></i>
+      <p class="text-gray-200 text-sm font-medium">Node.js</p>
+    </div>
+
+    <div class="group rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 
+                shadow-[0_0_12px_rgba(150,0,255,0.25)]
+                hover:shadow-[0_0_25px_rgba(170,60,255,0.55)] 
+                hover:-translate-y-2 transition-all duration-300
+                py-8 flex flex-col items-center">
+      <i class="fa-solid fa-database text-4xl text-purple-300 mb-3"></i>
+      <p class="text-gray-200 text-sm font-medium">MySQL</p>
+    </div>
+
+    <div class="group rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 
+                shadow-[0_0_12px_rgba(150,0,255,0.25)]
+                hover:shadow-[0_0_25px_rgba(170,60,255,0.55)] 
+                hover:-translate-y-2 transition-all duration-300
+                py-8 flex flex-col items-center">
+      <i class="fa-brands fa-git-alt text-4xl text-red-400 mb-3"></i>
+      <p class="text-gray-200 text-sm font-medium">Git</p>
+    </div>
+
+    <div class="group rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 
+                shadow-[0_0_12px_rgba(150,0,255,0.25)]
+                hover:shadow-[0_0_25px_rgba(170,60,255,0.55)] 
+                hover:-translate-y-2 transition-all duration-300
+                py-8 flex flex-col items-center">
+      <i class="fa-brands fa-linux text-4xl text-gray-300 mb-3"></i>
+      <p class="text-gray-200 text-sm font-medium">Linux</p>
+    </div>
+
+  </div>
+</section>
+
+
+
+  <!--PROJEK-->
+  <section id="projects" class="pt-20 pb-24">
+    <h2 class="text-center text-3xl font-semibold mb-12">Projects</h2>
+
+    <!-- CONTAINER DIKECILKAN -->
+    <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 px-6">
+
+      <!-- PROJECT CARD 1 -->
+      <div
+        class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-5 hover:scale-[1.02] transition shadow-lg soft-glow">
+        <img src="https://picsum.photos/500/300?random=11" class="w-full h-48 object-cover rounded-xl mb-4 glow" />
+
+        <h3 class="text-xl font-semibold text-purple-300">Landing Page</h3>
+        <p class="text-gray-300 text-sm mt-1">
+          Modern and responsive landing page with smooth animations.
+        </p>
+
+        <div class="flex gap-6 mt-4">
+          <a href="#" class="text-purple-400 underline">GitHub</a>
+          <a href="#" class="text-purple-400 underline">Live Demo</a>
+        </div>
+      </div>
+
+      <!-- PROJECT CARD 2 -->
+      <div
+        class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-5 hover:scale-[1.02] transition shadow-lg soft-glow">
+        <img src="https://picsum.photos/500/300?random=12" class="w-full h-48 object-cover rounded-xl mb-4 glow" />
+
+        <h3 class="text-xl font-semibold text-purple-300">Dashboard System</h3>
+        <p class="text-gray-300 text-sm mt-1">
+          Admin dashboard with analytics & charts.
+        </p>
+
+        <div class="flex gap-6 mt-4">
+          <a href="#" class="text-purple-400 underline">GitHub</a>
+          <a href="#" class="text-purple-400 underline">Live Demo</a>
+        </div>
+      </div>
+
+      <!-- PROJECT CARD 3 -->
+      <div
+        class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-5 hover:scale-[1.02] transition shadow-lg soft-glow">
+        <img src="https://picsum.photos/500/300?random=13" class="w-full h-48 object-cover rounded-xl mb-4 glow" />
+
+        <h3 class="text-xl font-semibold text-purple-300">Mobile App UI</h3>
+        <p class="text-gray-300 text-sm mt-1">
+          Elegant mobile interface following modern design standards.
+        </p>
+
+        <div class="flex gap-6 mt-4">
+          <a href="#" class="text-purple-400 underline">GitHub</a>
+          <a href="#" class="text-purple-400 underline">Live Demo</a>
+        </div>
+      </div>
+
+      <!-- PROJECT CARD 4 -->
+      <div
+        class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-5 hover:scale-[1.02] transition shadow-lg soft-glow">
+        <img src="https://picsum.photos/500/300?random=14" class="w-full h-48 object-cover rounded-xl mb-4 glow" />
+
+        <h3 class="text-xl font-semibold text-purple-300">Fullstack App</h3>
+        <p class="text-gray-300 text-sm mt-1">
+          Fullstack web app with authentication and API services.
+        </p>
+
+        <div class="flex gap-6 mt-4">
+          <a href="#" class="text-purple-400 underline">GitHub</a>
+          <a href="#" class="text-purple-400 underline">Live Demo</a>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section data-aos="fade-up" id="contact" class="py-20 max-w-6xl mx-auto px-6 text-center">
-    <h2 class="text-4xl font-bold mb-6">Contact Me</h2>
-    <p class="text-gray-300 mb-6">Feel free to reach out through any platform below!</p>
-    <div class="flex justify-center space-x-6 text-3xl text-indigo-400">
-      <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-      <a href="#"><i class="fa-brands fa-instagram"></i></a>
-      <a href="#"><i class="fa-brands fa-youtube"></i></a>
+
+  <!-- CONTACT -->
+  <section id="contact" class="pt-20 pb-24 text-center">
+    <h2 class="text-3xl font-semibold mb-4">Contact</h2>
+    <p class="text-gray-300 mb-10">Let’s build something amazing together.</p>
+
+    <div class="max-w-md mx-auto grid grid-cols-2 sm:grid-cols-4 gap-6">
+
+      <a href="#" class="bg-white/5 backdrop-blur-xl border border-white/10 p-6 rounded-xl 
+                      hover:scale-[1.07] transition soft-glow text-purple-300">
+        <i class="fa-brands fa-instagram text-3xl mb-2"></i>
+        <p class="text-sm text-gray-200 mt-1">Instagram</p>
+      </a>
+
+      <a href="#" class="bg-white/5 backdrop-blur-xl border border-white/10 p-6 rounded-xl 
+                      hover:scale-[1.07] transition soft-glow text-purple-300">
+        <i class="fa-brands fa-twitter text-3xl mb-2"></i>
+        <p class="text-sm text-gray-200 mt-1">Twitter</p>
+      </a>
+
+      <a href="#" class="bg-white/5 backdrop-blur-xl border border-white/10 p-6 rounded-xl 
+                      hover:scale-[1.07] transition soft-glow text-purple-300">
+        <i class="fa-brands fa-github text-3xl mb-2"></i>
+        <p class="text-sm text-gray-200 mt-1">GitHub</p>
+      </a>
+
+      <a href="#" class="bg-white/5 backdrop-blur-xl border border-white/10 p-6 rounded-xl 
+                      hover:scale-[1.07] transition soft-glow text-purple-300">
+        <i class="fa-brands fa-telegram text-3xl mb-2"></i>
+        <p class="text-sm text-gray-200 mt-1">Telegram</p>
+      </a>
+
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="py-6 text-center text-gray-400 text-sm">
-    © 2025 Ilham Zidni — All Rights Reserved.
-  </footer>
-  <!-- AOS Script -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>AOS.init({ duration: 900, once: true });</script>
+
+  <script>
+    tns({ container: '.my-slider', items: 1, slideBy: 'page', autoplay: true });
+    tns({ container: '.my-slider2', items: 1, slideBy: 'page', autoplay: true });
+  </script>
+
 </body>
+
 </html>
